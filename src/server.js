@@ -3,10 +3,9 @@ const cors = require('cors');
 const path = require('path');
 const app = express();
 
-// Use CORS middleware
+// Enable CORS for your Netlify domain
 app.use(cors({
-  origin: 'http://localhost:3000',
-  credentials: true
+  origin: 'https://renewwaste.netlify.app'
 }));
 
 app.use(express.json()); // Ensure JSON parsing middleware is used
@@ -24,9 +23,25 @@ app.get('/manifest.json', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/manifest.json'));
 });
 
-// Define the /api/items route
+// Define the GET /api/items route
+
+
+
+
+
+// Define the POST /api/auth/login route
+app.post('/api/auth/login', (req, res) => {
+  const { email, password } = req.body;
+  // Simulate user authentication (replace with actual authentication logic)
+  if (email === 'test@example.com' && password === 'password') {
+    res.status(200).json({ token: 'fake-jwt-token', userId: 1 });
+  } else {
+    res.status(401).json({ message: 'Invalid email or password' });
+  }
+});
+
+// Define the POST /api/items route
 app.post('/api/items', (req, res) => {
-  // Handle the request and respond
   const { title, description, category, price, imageUrl, listingType, wasteCategory, quantity } = req.body;
   
   // Validate required fields
