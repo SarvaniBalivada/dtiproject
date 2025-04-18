@@ -9,7 +9,7 @@ function App() {
         <p>Your platform for sustainable waste management and upcycling ideas.</p>
         <a
           className="App-link"
-          href="https://renewwaste.netlify.app/"
+          href="https://renewwaste.netlify.app"
           target="_blank"
           rel="noopener noreferrer"
         >
