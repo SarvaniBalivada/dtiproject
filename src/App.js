@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Marketplace from './pages/Marketplace';
+import UpcycleIdeas from './pages/UpcycleIdeas';
+import SellItems from './pages/SellItems';
+import Login from './pages/Login';
+import { CartProvider } from './context/CartContext';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CartProvider>
+      <Router>
+        <div className="App">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/marketplace" element={<Marketplace />} />
+            <Route path="/upcycle-ideas" element={<UpcycleIdeas />} />
+            <Route path="/sell" element={<SellItems />} />
+          </Routes>
+        </div>
+      </Router>
+    </CartProvider>
   );
 }
 
