@@ -4,11 +4,11 @@
   "private": true,
   "proxy": "http://localhost:5000",
   "scripts": {
-    "start": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
+    "start": "react-scripts start",
     "server": "cd backend && node server.js",
     "dev": "concurrently \"npm run server\" \"npm run start\"",
-    "build": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts build",
-    "test": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts test",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "backend-start": "node src/server.js"
   },
