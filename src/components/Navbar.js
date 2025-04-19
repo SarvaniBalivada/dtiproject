@@ -19,6 +19,7 @@ function Navbar() {
         <Link to="/marketplace">Marketplace</Link>
         <Link to="/upcycle-ideas">Upcycle Ideas</Link>
         <Link to="/sell">Sell Items</Link>
+        <Link to="/feedback">Feedback</Link> {/* Corrected the path */}
         {isLoggedIn ? (
           <button onClick={handleLogout} className="nav-button">Logout</button>
         ) : (
